@@ -23,6 +23,17 @@ import { GroupService } from './shared/group.service';
 import { RouletteAppComponent } from './roulette-app/roulette-app.component';
 import { RouletteService } from './shared/roulette.service';
 import { ColorDirective } from './directives/color.directive';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'users', component: UsersAppComponent},
+  {path: 'testing', component: TestingAppComponent},
+  {path: 'roulette', component: RouletteAppComponent},
+  // {path: '**', component: RouletteAppComponent},
+]
 
 @NgModule({
   declarations: [
@@ -42,11 +53,14 @@ import { ColorDirective } from './directives/color.directive';
     UsersComponent,
     UserComponent,
     RouletteAppComponent,
-    ColorDirective
+    ColorDirective,
+    ToolbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [QuestionService, UserService, GroupService, RouletteService],
   bootstrap: [AppComponent]
