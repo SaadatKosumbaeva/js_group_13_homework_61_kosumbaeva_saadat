@@ -1,0 +1,14 @@
+<div class="card mb-4" appBackground="{{ question.answerStatus }}">
+  <h5 class="card-header">Question</h5>
+  <div class="card-body">
+    <p class="card-text">{{ question.question }}</p>
+
+    <div appDisplay>
+      <button class="btn btn-secondary mb-3 mr-2">Help</button>
+      <span class="d-none">{{ question.help }}</span>
+    </div>
+
+    <app-answer [question]="question"></app-answer>
+  </div>
+</div>
+

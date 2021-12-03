@@ -1,0 +1,9 @@
+<form class="form-group m-0 row" (ngSubmit)="onAnswer()">
+  <label class="mr-2 col-7 p-0"><input class="form-control" [(ngModel)]="answer" name="answer"
+                                       placeholder="Input your answer"/></label>
+  <p class="m-0">
+    <button type="submit" class="btn btn-primary" [disabled]="question.answerStatus !== 'no-answer'">Answer</button>
+  </p>
+</form>
+
+

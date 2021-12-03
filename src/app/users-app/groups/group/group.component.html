@@ -1,0 +1,7 @@
+<div [ngClass]="{'border rounded-lg p-2 mb-2': true, 'shadow': isSelected}" (click)="onGroupClick()">
+  <h6>{{group.groupName}}</h6>
+  <ul class="m-0">
+    <li *ngFor="let user of users">{{ user.name }}</li>
+  </ul>
+</div>
+
