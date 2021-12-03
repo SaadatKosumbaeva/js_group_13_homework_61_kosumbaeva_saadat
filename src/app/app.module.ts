@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
 import { QuestionsComponent } from './testing-app/questions/questions.component';
 import { QuestionComponent } from './testing-app/questions/question/question.component';
 import { AnswerComponent } from './testing-app/answer/answer.component';
-import { FormsModule } from '@angular/forms';
 import { QuestionService } from './shared/question.service';
 import { BackgroundDirective } from './directives/background.directive';
 import { DisplayDirective } from './directives/display.directive';
@@ -24,15 +26,18 @@ import { RouletteAppComponent } from './roulette-app/roulette-app.component';
 import { RouletteService } from './shared/roulette.service';
 import { ColorDirective } from './directives/color.directive';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ModalComponent } from './ui/modal/modal.component';
+import { SendNumberComponent } from './send-number.component';
+import { NotFoundComponent } from './not-found.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'users', component: UsersAppComponent},
   {path: 'testing', component: TestingAppComponent},
   {path: 'roulette', component: RouletteAppComponent},
-  // {path: '**', component: RouletteAppComponent},
+  {path: 'send-number', component: SendNumberComponent},
+  {path: '**', component: NotFoundComponent},
 ]
 
 @NgModule({
@@ -55,7 +60,10 @@ const routes: Routes = [
     RouletteAppComponent,
     ColorDirective,
     ToolbarComponent,
-    HomeComponent
+    HomeComponent,
+    ModalComponent,
+    SendNumberComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

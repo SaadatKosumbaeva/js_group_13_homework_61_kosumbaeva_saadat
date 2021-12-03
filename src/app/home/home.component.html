@@ -1,1 +1,24 @@
-<h4 class="m-5">My works are presented on this site. Click on the links to see the applications!</h4>
+<h4 class="mt-5 mb-5 text-center">My works are presented on this site. Click on the links to see the applications!</h4>
+
+<div class="row justify-content-center align-items-center">
+  <div class="alert alert-primary" style="display: inline-block">
+    <form class="form-group" (ngSubmit)="openPhoneModal()">
+      <p>Order a callback</p>
+      <label>Phone number: <input type="number" class="form-control" placeholder="0-XXX-XX-XX-XX" name="phone"
+                                 [(ngModel)]="number"/></label>
+      <button class="btn btn-success ml-3">Send</button>
+    </form>
+  </div>
+</div>
+
+<app-modal title="Send phone number?" [isOpen]="modalOpen" (close)="closePhoneModal()">
+  <div class="modal-body">
+    <h3>Header</h3>
+    <p>You send the number: <strong>{{number}}</strong></p>
+    <p>Do you want to continue?</p>
+    <div class="modal-footer">
+      <button class="btn btn-danger" (click)="closePhoneModal()">Cancel</button>
+      <button class="btn btn-success" (click)="continue()">Continue</button>
+    </div>
+  </div>
+</app-modal>

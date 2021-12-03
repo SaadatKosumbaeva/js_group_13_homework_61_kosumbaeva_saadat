@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  number!: number;
+  modalOpen = false;
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
+  openPhoneModal() {
+    this.modalOpen = true;
   }
 
+  closePhoneModal() {
+    this.modalOpen = false;
+  }
+
+  continue() {
+    void this.router.navigate(['send-number']);
+  }
 }
